@@ -1,0 +1,40 @@
+{
+  "ledger_version": "1.0",
+  "status": "OK",
+  "config": {
+    "doc_table": "DOC",
+    "doc_id_column": "id",
+    "amount_column": "amt",
+    "unit_column": "unit",
+    "group_columns": [
+      "id",
+      "bu"
+    ]
+  },
+  "column_directory": [
+    "id",
+    "amt",
+    "bu",
+    "unit",
+    "team"
+  ],
+  "doc_table_index": 0,
+  "group_totals": [
+    {
+      "group": [
+        "D1",
+        "g1"
+      ],
+      "amount_cents": 100
+    }
+  ],
+  "pending": [],
+  "reconciliation": {
+    "doc_count": 1,
+    "distinct_doc_amount_total": 100,
+    "allocated_total": 100,
+    "pending_total": 0,
+    "balanced": true
+  },
+  "warnings": []
+}

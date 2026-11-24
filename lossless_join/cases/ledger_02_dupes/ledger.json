@@ -1,0 +1,50 @@
+{
+  "ledger_version": "1.0",
+  "status": "OK",
+  "config": {
+    "doc_table": "DOC",
+    "doc_id_column": "id",
+    "amount_column": "amt",
+    "unit_column": "unit",
+    "group_columns": [
+      "bu",
+      "team"
+    ]
+  },
+  "column_directory": [
+    "id",
+    "amt",
+    "bu",
+    "unit",
+    "team"
+  ],
+  "doc_table_index": 0,
+  "group_totals": [
+    {
+      "group": [
+        "bu1",
+        "team1"
+      ],
+      "amount_cents": 667
+    },
+    {
+      "group": [
+        "bu2",
+        "team2"
+      ],
+      "amount_cents": 333
+    }
+  ],
+  "pending": [],
+  "reconciliation": {
+    "doc_count": 1,
+    "distinct_doc_amount_total": 1000,
+    "allocated_total": 1000,
+    "pending_total": 0,
+    "balanced": true
+  },
+  "warnings": [
+    "NOTICE:交付表 'DOC' 存在 1 条重复行，已按集合语义去重",
+    "NOTICE:交付表 'B' 存在 2 条重复行，已按集合语义去重"
+  ]
+}

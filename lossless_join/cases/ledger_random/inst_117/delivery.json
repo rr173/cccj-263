@@ -1,0 +1,1 @@
+{"tables": [{"name": "T0", "columns": ["doc_id", "amt_c", "unit", "g1", "g2", "x1", "x2"], "rows": [["D0", 101, "u2", 2, null, 30, null], ["D1", 333, "u1", 1, "b", 10, "q"]]}, {"name": "T1", "columns": ["unit", "g2", "x2"], "rows": [["u3", "a", "p"], ["u1", "c", "q"], ["u2", "c", "p"], [null, null, "q"], ["u2", "a", null]]}], "tree": [["T0", "T1"]]}

@@ -1,1 +1,1 @@
-{"columns": ["c0", "c1", "c2", "c3"], "rows": [[1, 1, 2, "s"], ["s", 0, 0, 0], [null, "s", "s", null], ["s", "s", 2, 0], [null, "s", null, 0], [null, 1, 2, 2]]}
+{"columns": ["c0", "c1", "c2", "c3"], "rows": [["s", 0, 0, 0], [null, "s", "s", null], ["s", "s", 2, 0], [1, 1, 2, "s"], [null, "s", null, 0], [null, 1, 2, 2]]}

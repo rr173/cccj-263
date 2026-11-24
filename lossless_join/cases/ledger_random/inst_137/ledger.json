@@ -1,0 +1,55 @@
+{
+  "ledger_version": "1.0",
+  "status": "OK",
+  "config": {
+    "doc_table": "T0",
+    "doc_id_column": "doc_id",
+    "amount_column": "amt_c",
+    "unit_column": "unit",
+    "group_columns": [
+      "g1",
+      "g2"
+    ]
+  },
+  "column_directory": [
+    "doc_id",
+    "amt_c",
+    "unit",
+    "g1",
+    "g2",
+    "x1",
+    "x2"
+  ],
+  "doc_table_index": 0,
+  "group_totals": [],
+  "pending": [
+    {
+      "doc_id": "D0",
+      "amount_cents": -500
+    },
+    {
+      "doc_id": "D1",
+      "amount_cents": -1
+    },
+    {
+      "doc_id": "D2",
+      "amount_cents": -500
+    },
+    {
+      "doc_id": "D3",
+      "amount_cents": 101
+    },
+    {
+      "doc_id": "D4",
+      "amount_cents": -7
+    }
+  ],
+  "reconciliation": {
+    "doc_count": 5,
+    "distinct_doc_amount_total": -907,
+    "allocated_total": 0,
+    "pending_total": -907,
+    "balanced": true
+  },
+  "warnings": []
+}

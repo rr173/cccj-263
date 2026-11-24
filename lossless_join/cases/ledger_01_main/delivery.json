@@ -1,0 +1,1 @@
+{"tables": [{"name": "DOC", "columns": ["id", "amt"], "rows": [["D1", 1000]]}, {"name": "B", "columns": ["id", "bu", "unit"], "rows": [["D1", "bu1", "u1"], ["D1", "bu1", "u2"], ["D1", "bu2", "u3"]]}, {"name": "T", "columns": ["bu", "team"], "rows": [["bu1", "team1"], ["bu2", "team2"]]}], "tree": [["DOC", "B"], ["B", "T"]]}
