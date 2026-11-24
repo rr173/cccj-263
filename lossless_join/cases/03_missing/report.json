@@ -1,0 +1,83 @@
+{
+  "report_version": "1.0",
+  "status": "REJECTED",
+  "verdict": {
+    "fact_row_count": 3,
+    "reconstructed_distinct_row_count": 3,
+    "intersection_row_count": 2,
+    "missing_row_count": 1,
+    "spurious_row_count": 1,
+    "sets_equal": false
+  },
+  "warnings": [],
+  "missing_evidence": {
+    "fact_row": [
+      2,
+      "x",
+      30
+    ],
+    "fact_columns": [
+      "a",
+      "b",
+      "c"
+    ],
+    "missing_fragment": {
+      "table": "T1",
+      "table_index": 0,
+      "expected_columns": [
+        "a",
+        "b"
+      ],
+      "expected_row": [
+        2,
+        "x"
+      ]
+    }
+  },
+  "spurious_evidence": {
+    "assembled_row": [
+      1,
+      "x",
+      30
+    ],
+    "fact_columns": [
+      "a",
+      "b",
+      "c"
+    ],
+    "witnesses": [
+      {
+        "table": "T1",
+        "table_index": 0,
+        "row_number": 0,
+        "row_indices_in_file": [
+          0
+        ],
+        "row": [
+          1,
+          "x"
+        ],
+        "columns": [
+          "a",
+          "b"
+        ]
+      },
+      {
+        "table": "T2",
+        "table_index": 1,
+        "row_number": 2,
+        "row_indices_in_file": [
+          2
+        ],
+        "row": [
+          "x",
+          30
+        ],
+        "columns": [
+          "b",
+          "c"
+        ]
+      }
+    ]
+  }
+}

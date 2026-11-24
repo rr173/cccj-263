@@ -1,0 +1,38 @@
+{
+  "report_version": "1.0",
+  "status": "REJECTED",
+  "verdict": {
+    "fact_row_count": 3,
+    "reconstructed_distinct_row_count": 2,
+    "intersection_row_count": 2,
+    "missing_row_count": 1,
+    "spurious_row_count": 0,
+    "sets_equal": false
+  },
+  "warnings": [],
+  "missing_evidence": {
+    "fact_row": [
+      2,
+      "z",
+      30
+    ],
+    "fact_columns": [
+      "a",
+      "b",
+      "c"
+    ],
+    "missing_fragment": {
+      "table": "T1",
+      "table_index": 0,
+      "expected_columns": [
+        "a",
+        "b"
+      ],
+      "expected_row": [
+        2,
+        "z"
+      ]
+    }
+  },
+  "spurious_evidence": null
+}

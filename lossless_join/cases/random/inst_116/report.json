@@ -1,0 +1,10 @@
+{
+  "report_version": "1.0",
+  "status": "REJECTED",
+  "reasons": [
+    "列 'c1' 出现冲突类型: ['int', 'string']",
+    "列 'c2' 出现冲突类型: ['int', 'string']",
+    "列 'c3' 出现冲突类型: ['int', 'string']"
+  ],
+  "warnings": []
+}

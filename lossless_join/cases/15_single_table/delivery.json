@@ -1,0 +1,3 @@
+{"tables": [
+  {"name": "ONLY", "columns": ["a", "b"], "rows": [[1, "x"], [2, "y"]]}
+], "tree": []}

@@ -1,0 +1,21 @@
+{
+  "report_version": "1.0",
+  "status": "ACCEPTED",
+  "verdict": {
+    "fact_row_count": 2,
+    "reconstructed_distinct_row_count": 2,
+    "intersection_row_count": 2,
+    "missing_row_count": 0,
+    "spurious_row_count": 0,
+    "sets_equal": true
+  },
+  "warnings": [
+    "NOTICE:原表存在 1 条重复行，已按集合语义去重",
+    "NOTICE:交付表 'T1' 存在 1 条重复行，已按集合语义去重",
+    "NOTICE:交付表 'T2' 存在 1 条重复行，已按集合语义去重",
+    "NOTICE:交付表 'T1' 存在 1 条重复行，已按集合语义去重",
+    "NOTICE:交付表 'T2' 存在 1 条重复行，已按集合语义去重"
+  ],
+  "missing_evidence": null,
+  "spurious_evidence": null
+}

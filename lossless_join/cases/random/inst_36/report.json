@@ -1,0 +1,8 @@
+{
+  "report_version": "1.0",
+  "status": "REJECTED",
+  "reasons": [
+    "列 'c0' 出现在不连通的多个树块中，违反同名列连成一块的要求"
+  ],
+  "warnings": []
+}

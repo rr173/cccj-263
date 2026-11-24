@@ -1,0 +1,1 @@
+{"tables": [{"name": "T0", "columns": ["c1", "c2", "c3"], "rows": [[null, 1, "s"], [2, 1, 2]]}, {"name": "T1", "columns": ["c1", "c2", "c3"], "rows": [[null, 1, "s"]]}, {"name": "T2", "columns": ["c0", "c1", "c2"], "rows": [[0, null, 1], [0, 2, 0]]}], "tree": [["T0", "T1"], ["T0", "T2"]]}
