@@ -1,13 +1,15 @@
-# 窄表无损回拼验收 / 费用分摊台账 / 按周滚动发布工具
+# 窄表无损回拼验收 / 费用分摊台账 / 按周滚动发布 / 批量主键查询工具
 
-本项目提供三个相互独立的离线入口，共享同一套窄表协议（表与连接树格式、
+本项目提供四个相互独立的离线入口，共享同一套窄表协议（表与连接树格式、
 空值字面相等、RIP、整行集合语义）：
 
 1. **验收入口** `tool/lossless_accept.py`：给定完整原事实表，判定窄表回拼是否无损；
 2. **台账入口** `tool/fee_ledger.py`：**不需要原事实表**，直接从窄表生成按业务
    分组的费用台账与待分摊清单；
 3. **滚动发布入口** `tool/delivery_rollforward.py`：给定上周事实表与交付包及一批
-   按业务行键定位的变更，应用变更并发布下一版窄表快照与变更报告（见第二节）。
+   按业务行键定位的变更，应用变更并发布下一版窄表快照与变更报告（见第二节）；
+4. **批量主键查询入口** `tool/key_query.py`：只有交付窄表包和一批主键时，导出这些
+   键对应的完整事实行集合与逐键查询报告（见第三节）。
 
 ---
 # 一、无损回拼验收（`lossless_accept.py`）
@@ -327,7 +329,111 @@ python3 -I tool/lossless_accept.py accept \
 绝对路径）。整批失败时以 `status=REJECTED`、`stage`、`reasons` 说明原因，
 不写任何输出。
 
-## 5. 测试
+---
+
+# 三、批量主键查询（`key_query.py`，不需要原事实表）
+
+客服只有供应商交付的 `delivery.json`（窄表、连接树、列目录并集）和一批业务主键时，
+可用本入口导出这些主键对应的完整事实行，并得到逐键查询报告。既有
+`accept` / `verify-report` / `ledger` / `apply` 命令均保持不变。
+
+## 1. 查询语义
+
+- 至少指定一个主键列，可重复 `--key-col`；列名必须在交付包列目录中且不得重复；
+- 主键值只允许整数、字符串、显式 `null`，并沿用空值字面相等协议；
+- 同一主键重复提交只按一个请求键处理；
+- 一条完整行只有在连接树的**每张**窄表中都存在投影相容的实际行时才返回；
+- 相邻表按全部共享列对齐。共享接口不相容时，不会把不同分支的局部值拼成新行；
+- 整行按集合去重；同一事实行即使由多条支持路径得到也只输出一份；
+- 返回行的主键列元组必须等于某个去重后的请求键；
+- 空命中是合法结果，事实文件为 `{"columns": [...], "rows": []}`，退出码仍为 0。
+
+执行时给每个请求键分配一个位掩码，在树上做自底向上和自顶向下两次接口约束传播：
+先剔除不能被请求键/子树/祖先支持的窄表行，再只枚举最终结果规模的行组合。
+因此不会生成未请求键的整棵连接结果，也不会先物化可能爆炸的中间连接集合；
+无共享列分支的组合只在它确实属于待写出的完整行时才逐行展开。
+
+## 2. 主键文件
+
+单列主键可以直接给标量数组：
+
+```json
+{"key_columns": ["id"], "keys": [1001, 1002, null, 1001]}
+```
+
+复合键可以给按 `--key-col` 顺序的数组，或列名对象：
+
+```json
+{
+  "keys": [
+    ["BU-1", "TEAM-A", 7],
+    {"bu": "BU-2", "team": "TEAM-B", "version": 3}
+  ]
+}
+```
+
+也支持顶层直接为数组；`key_columns` 可写在命令行或主键文件中。布尔值、浮点数、
+对象/数组（作为标量值）等违反协议的批次会整批拒收。
+
+## 3. 用法与输出
+
+```bash
+python3 -I tool/key_query.py query \
+    --delivery cases/q01/delivery.json \
+    --key-col id \
+    --keys keys.json \
+    --out-dir query_out
+# 默认成组写出 query_out/fact.json 与 query_out/query_report.json
+
+# 也可分别指定路径：
+python3 -I tool/key_query.py query \
+    --delivery delivery.json --key-col bu --key-col team \
+    --keys keys.json \
+    --fact-out fact_rows.json \
+    --report-out query_report.json
+```
+
+`query` 子命令可省略；`batch_key_query.py`、`key_lookup.py` 等路径保留为兼容入口，
+`lossless_accept.py query ...` 也转发到同一实现。
+
+事实行文件就是现有验收工具接受的原事实表格式：
+
+```json
+{
+  "columns": ["id", "bu", "team", "amount"],
+  "rows": [[1001, "BU-1", "TEAM-A", 1200]]
+}
+```
+
+结果行按完整行的确定性值序排序（`null` 最前，整数按数值，字符串按 Unicode 码点）。
+报告的核心字段为：
+
+```json
+{
+  "status": "OK",
+  "key_columns": ["id"],
+  "requested_key_count": 3,
+  "submitted_key_count": 4,
+  "duplicate_request_count": 1,
+  "total_row_count": 2,
+  "hit_key_count": 1,
+  "missing_key_count": 2,
+  "results": [
+    {"key": {"id": 1001}, "hit": true, "row_count": 2},
+    {"key": {"id": 1002}, "hit": false, "row_count": 0}
+  ],
+  "missing_keys": [{"id": 1002}],
+  "warnings": []
+}
+```
+
+`results` 按规范键序排序；每个请求键都有一条 `hit` / `row_count` 记录。
+报告同时提供 `key_results`、`missing_key_values` 等常见别名字段。
+事实文件与报告通过同组临时文件和回滚逻辑原子发布；输入、键批次或查询校验失败时
+退出码为 `2`，不写新的成功结果组，若目标路径已有上一版完整结果也会保留/回滚。
+相同输入重复执行得到相同集合及逐字节一致的报告（不含时间戳或绝对路径）。
+
+# 四、测试
 
 ```bash
 python3 -I run_tests.py        # 验收：38 项端到端断言（13 个场景 + 证据篡改驳回）
@@ -336,6 +442,7 @@ python3 -I ledger_tests.py     # 台账：44 项端到端断言（手算分摊/�
 python3 -I ledger_diff_test.py # 台账：150 个随机实例对朴素全枚举的差分测试 + 3.4 亿隐式组合压力
 python3 -I rollforward_tests.py    # 滚动发布：83 项端到端断言（预检/变更/投影/原子/幂等/压力）
 python3 -I rollforward_diff_test.py # 滚动发布：150 个随机实例对朴素基准的差分测试
+python3 -I key_query_tests.py      # 主键查询：26 项端到端断言（复合键/null/接口剪枝/原子/幂等/兼容入口）
 ```
 
 台账压力场景：单据仅 1 张、4 张窄表共约 2100 行输入，三个无共享列分支各 700 行，

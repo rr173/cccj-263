@@ -8,8 +8,8 @@
       "fact_row_count": 1
     },
     "delivery": {
-      "file_sha256": "95b76c1de84fe44f4c6ec48555affd8b016467a2133246362365e1ab4ed9f6ae",
-      "delivery_content_sha256": "5c6e848610f3d763820b7365cf964bb5090155757d15605828c0766cc274b7bd"
+      "file_sha256": "0ab7631451dc8cdd99e7912892aee83013fbabc0e93dd86b10a7ba4f8b73d00a",
+      "delivery_content_sha256": "fe64a1ba98ad8a505dcffef4fdc7db00ecec973743fe22ee07cac974d19364fb"
     },
     "changes": {
       "file_sha256": "a1bbc582f7153ffe9b7d17534afc80d57ab72e4f1117413b50a546818846058e",
@@ -88,11 +88,11 @@
     {
       "name": "T0",
       "columns": [
-        "c0"
+        "c1"
       ],
       "before_row_count": 1,
-      "after_row_count": 4,
-      "added_distinct_row_count": 3,
+      "after_row_count": 3,
+      "added_distinct_row_count": 2,
       "removed_distinct_row_count": 0,
       "unchanged_row_count": 1
     },
@@ -129,12 +129,12 @@
     "sets_equal": false
   },
   "outputs": {
-    "delivery_content_sha256": "867b561374dcd38015c365c9e0f46a08700386b87f4dd8b528d3b7c51c27b0a8",
+    "delivery_content_sha256": "a4570c0b9884a290485a3075ef23d6f6d30dc94e5129f5a01553ca977e577f44",
     "fact_content_sha256": "0cca79a517e59cc07ad4299d1b741d12491d5b0c7f93deeda629c7e0ac8d38a8",
     "delivery_row_count_by_table": [
       {
         "name": "T0",
-        "row_count": 4
+        "row_count": 3
       },
       {
         "name": "T1",
@@ -146,7 +146,7 @@
       }
     ],
     "fact_row_count": 4,
-    "delivery_file_sha256": "c490a717a6294f8f1844d2f276243d48c5944b241896c085fe305260c060b859",
+    "delivery_file_sha256": "d67f0b2706dcf719fa31a709adbbbec0d60a8eb5f8338cd3561f531dcf83e69c",
     "fact_file_sha256": "4b4249f82289ec5119b9656bec395f83b2c537a143d81b1f36ea62bbcbded01c"
   },
   "warnings": [

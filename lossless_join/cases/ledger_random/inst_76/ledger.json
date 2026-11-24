@@ -25,14 +25,30 @@
   "pending": [
     {
       "doc_id": "D0",
-      "amount_cents": 101
+      "amount_cents": -7
+    },
+    {
+      "doc_id": "D1",
+      "amount_cents": 7
+    },
+    {
+      "doc_id": "D2",
+      "amount_cents": 333
+    },
+    {
+      "doc_id": "D3",
+      "amount_cents": -7
+    },
+    {
+      "doc_id": "D4",
+      "amount_cents": -500
     }
   ],
   "reconciliation": {
-    "doc_count": 1,
-    "distinct_doc_amount_total": 101,
+    "doc_count": 5,
+    "distinct_doc_amount_total": -174,
     "allocated_total": 0,
-    "pending_total": 101,
+    "pending_total": -174,
     "balanced": true
   },
   "warnings": []

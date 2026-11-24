@@ -8,8 +8,8 @@
       "fact_row_count": 8
     },
     "delivery": {
-      "file_sha256": "d5355e0ebc4c82392a2227417b87fe0326d90063e2ca7649f66749daacd8eebf",
-      "delivery_content_sha256": "68256d8e7ed05510395b134764eceb0a509f471457552efb66230b0e27c0a2e8"
+      "file_sha256": "2ca207409ff366ada5167ab130db0a80bc026644d53e8868c843adbfa62dd0cd",
+      "delivery_content_sha256": "f00b4905c1cefacf03fce849336e3ee6f14904bded1ce98393f0d0b4c5151914"
     },
     "changes": {
       "file_sha256": "47b574a78c585ca96167d767940dba57eda435855228573a08fc70defaaea10c",

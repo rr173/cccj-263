@@ -21,34 +21,34 @@
     "x2"
   ],
   "doc_table_index": 0,
-  "group_totals": [],
+  "group_totals": [
+    {
+      "group": [
+        null,
+        "c"
+      ],
+      "amount_cents": 1000
+    }
+  ],
   "pending": [
     {
       "doc_id": "D0",
-      "amount_cents": 7
+      "amount_cents": 101
     },
     {
       "doc_id": "D1",
-      "amount_cents": -1
+      "amount_cents": -7
     },
     {
       "doc_id": "D2",
       "amount_cents": -500
-    },
-    {
-      "doc_id": "D3",
-      "amount_cents": 7
-    },
-    {
-      "doc_id": "D4",
-      "amount_cents": 1
     }
   ],
   "reconciliation": {
-    "doc_count": 5,
-    "distinct_doc_amount_total": -486,
-    "allocated_total": 0,
-    "pending_total": -486,
+    "doc_count": 4,
+    "distinct_doc_amount_total": 594,
+    "allocated_total": 1000,
+    "pending_total": -406,
     "balanced": true
   },
   "warnings": []

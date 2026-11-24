@@ -24,6 +24,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import sys
 from collections import deque
 from typing import Any, Dict, List, Optional, Sequence, Tuple
@@ -770,6 +771,18 @@ def verify_report(fact_path: str, delivery_path: str, report_path: str) -> Dict[
 # --------------------------------------------------------------------------- #
 
 def main(argv: Optional[List[str]] = None) -> int:
+    argv_list = list(sys.argv[1:] if argv is None else argv)
+
+    # 批量主键查询是同项目的独立入口；这里保留兼容子命令转发。
+    # 既有 accept / verify-report 不走此分支，参数与退出码完全不变。
+    if (argv_list and not argv_list[0].startswith("-")
+            and argv_list[0] not in {"accept", "verify-report"}):
+        tool_dir = os.path.dirname(os.path.abspath(__file__))
+        if tool_dir not in sys.path:
+            sys.path.insert(0, tool_dir)
+        from key_query import main as key_query_main
+        return key_query_main(["query", *argv_list[1:]])
+
     parser = argparse.ArgumentParser(
         description="窄表无损回拼离线验收工具（不物化回拼结果）")
     sub = parser.add_subparsers(dest="cmd", required=True)

@@ -1,1 +1,1 @@
-{"tables": [{"name": "T0", "columns": ["c0", "c1", "c3"], "rows": [["s", 0, 0], [2, 1, 2], [2, "s", 0], [null, "s", null], [0, 0, null]]}, {"name": "T1", "columns": ["c2", "c3"], "rows": [[0, null], [1, 2], [null, 0], [1, "s"]]}], "tree": [["T0", "T1"]]}
+{"tables": [{"name": "T0", "columns": ["c0", "c1", "c3"], "rows": [[2, 1, 2], [null, "s", null], ["s", 0, 0], [2, "s", 0], [0, 0, null]]}, {"name": "T1", "columns": ["c2", "c3"], "rows": [[0, null], [1, 2], [null, 0], [1, "s"]]}], "tree": [["T0", "T1"]]}

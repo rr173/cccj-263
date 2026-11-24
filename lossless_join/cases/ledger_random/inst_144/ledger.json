@@ -21,30 +21,21 @@
     "x2"
   ],
   "doc_table_index": 0,
-  "group_totals": [],
-  "pending": [
+  "group_totals": [
     {
-      "doc_id": "D0",
-      "amount_cents": -500
-    },
-    {
-      "doc_id": "D1",
-      "amount_cents": 1000
-    },
-    {
-      "doc_id": "D2",
-      "amount_cents": 101
-    },
-    {
-      "doc_id": "D3",
-      "amount_cents": 1000
+      "group": [
+        0,
+        "a"
+      ],
+      "amount_cents": 7
     }
   ],
+  "pending": [],
   "reconciliation": {
-    "doc_count": 4,
-    "distinct_doc_amount_total": 1601,
-    "allocated_total": 0,
-    "pending_total": 1601,
+    "doc_count": 1,
+    "distinct_doc_amount_total": 7,
+    "allocated_total": 7,
+    "pending_total": 0,
     "balanced": true
   },
   "warnings": []
