@@ -1,0 +1,41 @@
+{
+  "delivery_version": "1.0",
+  "tables": [
+    {
+      "name": "T0",
+      "columns": [
+        "c0",
+        "c1",
+        "c2",
+        "c3"
+      ],
+      "rows": [
+        [
+          null,
+          18,
+          null,
+          2
+        ],
+        [
+          "a",
+          17,
+          null,
+          2
+        ],
+        [
+          "b",
+          13,
+          null,
+          1
+        ],
+        [
+          "s",
+          19,
+          "s",
+          null
+        ]
+      ]
+    }
+  ],
+  "tree": []
+}

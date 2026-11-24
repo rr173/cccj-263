@@ -21,21 +21,18 @@
     "x2"
   ],
   "doc_table_index": 0,
-  "group_totals": [
+  "group_totals": [],
+  "pending": [
     {
-      "group": [
-        1,
-        null
-      ],
-      "amount_cents": -7
+      "doc_id": "D0",
+      "amount_cents": -1
     }
   ],
-  "pending": [],
   "reconciliation": {
     "doc_count": 1,
-    "distinct_doc_amount_total": -7,
-    "allocated_total": -7,
-    "pending_total": 0,
+    "distinct_doc_amount_total": -1,
+    "allocated_total": 0,
+    "pending_total": -1,
     "balanced": true
   },
   "warnings": []

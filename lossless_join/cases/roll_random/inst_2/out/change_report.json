@@ -1,0 +1,172 @@
+{
+  "report_version": "1.0",
+  "status": "OK",
+  "tool": "delivery_rollforward",
+  "inputs": {
+    "fact": {
+      "file_sha256": "73cb6ee98c6f6df30116d757cc6baf02fd2e8ce6d1ddcf6036fa11dfa1d72c73",
+      "fact_row_count": 5
+    },
+    "delivery": {
+      "file_sha256": "96fe3ea89a58964c4a69d81a83ea2f1876a6950f9eedd88bc53c8d00192742ca",
+      "delivery_content_sha256": "6d77394ac10168f836497824c2f3dc2ecfba44a8c5caf2be988db1819bb88c6f"
+    },
+    "changes": {
+      "file_sha256": "8b5ffb348cccdc0ea4bb716f41af711061a598409ac2bcc466fa964e1e75312a",
+      "submitted_operation_count": 2
+    }
+  },
+  "key_columns": [
+    "c0"
+  ],
+  "precheck": {
+    "fact_row_count": 5,
+    "reconstructed_distinct_row_count": 5,
+    "intersection_row_count": 5,
+    "missing_row_count": 0,
+    "spurious_row_count": 0,
+    "sets_equal": true,
+    "tables": [
+      {
+        "name": "T0",
+        "delivered_row_count": 5,
+        "fact_projection_row_count": 5,
+        "delivered_rows_outside_projection": 0,
+        "projection_rows_not_delivered": 0
+      },
+      {
+        "name": "T1",
+        "delivered_row_count": 5,
+        "fact_projection_row_count": 5,
+        "delivered_rows_outside_projection": 0,
+        "projection_rows_not_delivered": 0
+      },
+      {
+        "name": "T2",
+        "delivered_row_count": 5,
+        "fact_projection_row_count": 5,
+        "delivered_rows_outside_projection": 0,
+        "projection_rows_not_delivered": 0
+      },
+      {
+        "name": "T3",
+        "delivered_row_count": 5,
+        "fact_projection_row_count": 5,
+        "delivered_rows_outside_projection": 0,
+        "projection_rows_not_delivered": 0
+      }
+    ]
+  },
+  "changes": {
+    "complete_applied": true,
+    "submitted_operation_count": 2,
+    "accepted_operation_count": 2,
+    "by_operation": {
+      "insert": 1,
+      "update": 1,
+      "delete": 0
+    },
+    "affected_business_key_count": 2,
+    "affected_business_keys": [
+      {
+        "key": {
+          "c0": 12
+        },
+        "operation": "update",
+        "row_changed": true
+      },
+      {
+        "key": {
+          "c0": 17
+        },
+        "operation": "insert",
+        "row_changed": true
+      }
+    ]
+  },
+  "tables": [
+    {
+      "name": "T0",
+      "columns": [
+        "c0",
+        "c1",
+        "c2"
+      ],
+      "before_row_count": 5,
+      "after_row_count": 6,
+      "added_distinct_row_count": 2,
+      "removed_distinct_row_count": 1,
+      "unchanged_row_count": 4
+    },
+    {
+      "name": "T1",
+      "columns": [
+        "c0",
+        "c1"
+      ],
+      "before_row_count": 5,
+      "after_row_count": 6,
+      "added_distinct_row_count": 2,
+      "removed_distinct_row_count": 1,
+      "unchanged_row_count": 4
+    },
+    {
+      "name": "T2",
+      "columns": [
+        "c0"
+      ],
+      "before_row_count": 5,
+      "after_row_count": 6,
+      "added_distinct_row_count": 1,
+      "removed_distinct_row_count": 0,
+      "unchanged_row_count": 5
+    },
+    {
+      "name": "T3",
+      "columns": [
+        "c0",
+        "c1",
+        "c2"
+      ],
+      "before_row_count": 5,
+      "after_row_count": 6,
+      "added_distinct_row_count": 2,
+      "removed_distinct_row_count": 1,
+      "unchanged_row_count": 4
+    }
+  ],
+  "postcheck": {
+    "fact_row_count": 6,
+    "reconstructed_distinct_row_count": 6,
+    "intersection_row_count": 6,
+    "missing_row_count": 0,
+    "spurious_row_count": 0,
+    "sets_equal": true
+  },
+  "outputs": {
+    "delivery_content_sha256": "b75ebae0925de43ae6be80ae201a0c69f7db5ef9c23313ad32cba7b56c7a1aa2",
+    "fact_content_sha256": "4cdb4b28900e436cbe7f014471409ccc2bbf3be312084df58a9cf5ae23929aba",
+    "delivery_row_count_by_table": [
+      {
+        "name": "T0",
+        "row_count": 6
+      },
+      {
+        "name": "T1",
+        "row_count": 6
+      },
+      {
+        "name": "T2",
+        "row_count": 6
+      },
+      {
+        "name": "T3",
+        "row_count": 6
+      }
+    ],
+    "fact_row_count": 6,
+    "delivery_file_sha256": "13b603622db34f6d8c5de307b131923ba274b27e3781a742f9eb2538acd06ead",
+    "fact_file_sha256": "7b12c9aff28f7c54e2cfcc52049175e8b61d64359ad67e1c4ea3a92a44d1c7fe"
+  },
+  "warnings": []
+}

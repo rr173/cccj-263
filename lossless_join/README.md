@@ -1,11 +1,13 @@
-# 窄表无损回拼离线验收工具 / 费用分摊台账工具
+# 窄表无损回拼验收 / 费用分摊台账 / 按周滚动发布工具
 
-本项目提供两个相互独立的离线入口，共享同一套窄表协议（表与连接树格式、
+本项目提供三个相互独立的离线入口，共享同一套窄表协议（表与连接树格式、
 空值字面相等、RIP、整行集合语义）：
 
 1. **验收入口** `tool/lossless_accept.py`：给定完整原事实表，判定窄表回拼是否无损；
 2. **台账入口** `tool/fee_ledger.py`：**不需要原事实表**，直接从窄表生成按业务
-   分组的费用台账与待分摊清单。
+   分组的费用台账与待分摊清单；
+3. **滚动发布入口** `tool/delivery_rollforward.py`：给定上周事实表与交付包及一批
+   按业务行键定位的变更，应用变更并发布下一版窄表快照与变更报告（见第二节）。
 
 ---
 # 一、无损回拼验收（`lossless_accept.py`）
@@ -239,15 +241,106 @@ python3 -I tool/fee_ledger.py ledger \
 distinct_doc_amount_total`（去重后单据金额之和）。任何非法数据或配置都以
 `status=REJECTED` 明确报错，**不输出部分台账**（`--out` 不会落盘）。
 
-## 6. 测试
+---
+# 二、按周滚动发布（`delivery_rollforward.py`）
+
+上游按周发布窄表快照：上周给出完整事实表与实际交付包，本周只给一批按业务行键
+定位的变更。本入口在**不改动**上述两个入口的前提下，离线应用变更并发布下一版
+窄表快照与变更报告。
+
+## 1. 流程
+
+1. **预检**：先用验收协议精确判定「上周事实表」与「上周交付包」是否表示同一份
+   整行集合。上周交付若缺行、造行或结构非法，直接整批拒收（`stage=precheck`
+   或 `stage=delivery`），**绝不静默修复后继续**。
+2. **应用变更**：在同一套业务行键上应用 `insert` / `update` / `delete`，得到本周
+   事实集合。业务键不允许空值，且在事实集合中必须唯一（否则无法按行键定位）。
+3. **生成快照**：每张表恰好是本周事实行在其声明列上的投影，按集合语义去重。
+   因此同一投影由多条事实行共同支持时，删除其中一条不会误删仍被其他事实行使用
+   的交付行；修改连接键会同步改变所有声明该列的表。内部只维护
+   「投影 → 支持它的去重事实行数」与本周事实字典，规模随事实行、变更行和实际
+   受影响的投影行增长，**不生成完整连接结果**。
+4. **后检**：用同一验收协议复核新包，把精确计数写入报告。若上周的列划分与连接
+   树使「投影包」本身无法无损回拼（结构性问题，例如同一业务键的多值列被拆到
+   两侧），工具**不会私自增删交付行**，而是如实写入 `postcheck` 与 `warnings`；
+   需要「无损否则失败」时加 `--require-lossless`。
+5. **原子落盘**：`delivery.json`、`fact.json`、`change_report.json` 作为一组原子
+   发布；任一写入失败则回滚，不留下可被当作新版本的部分结果，原交付包保持可用。
+
+## 2. 变更文件格式
+
+```json
+{"changes": [
+  {"op": "insert", "row": [3, "w", 40]},
+  {"op": "update", "key": {"b": "x"}, "row": [1, "x", 99]},
+  {"op": "delete", "key": {"b": "z"}}
+]}
+```
+
+- `op` 只能是 `insert` / `update` / `delete`；
+- `row` 是完整行（与事实表同宽的数组，或按列名的对象）；
+- `key` 是业务行键（`{列: 值}` 对象，或按 `--key-col` 顺序的数组）；
+  `insert` 可省略 `key`（由 `row` 推导）；
+- 新增必须是当前不存在的完整行；修改/删除的键必须当前存在；修改后的 `row`
+  在业务键列上必须与原键一致（业务键不能改变）；
+- 同一批次对同一业务键不得出现重复或冲突操作；
+- 上述任一不满足、行宽/列名/值类型/操作结构非法、业务键为空，整批拒收
+  （`stage=changes`），不写任何输出。
+
+## 3. 用法
+
+```bash
+python3 -I tool/delivery_rollforward.py apply \
+    --fact last_week/fact.json \
+    --delivery last_week/delivery.json \
+    --changes this_week/changes.json \
+    --key-col b \
+    --out-dir this_week
+# 产物: this_week/delivery.json、this_week/fact.json、this_week/change_report.json
+```
+
+`--key-col` 可重复指定多个非空业务行键列；`apply` 亦可写作 `publish` /
+`rollforward`。`--delivery-out` / `--fact-out` / `--report-out` 可分别覆盖默认
+路径（不得与输入或彼此重叠）。新包可直接交给第一节的验收、第五节台账入口。
+
+```bash
+python3 -I tool/lossless_accept.py accept \
+    --fact this_week/fact.json --delivery this_week/delivery.json
+```
+
+## 4. 报告字段（`change_report.json`）
+
+- `inputs`：三个输入文件的 `sha256`（内容级）与提交操作数；
+- `key_columns`：本次业务行键列；
+- `precheck`：上周事实/交付的精确计数（`fact_row_count`、`intersection_row_count`、
+  `missing_row_count`、`spurious_row_count`、`sets_equal`）与逐表投影核对；
+- `changes`：`complete_applied`（是否完整应用）、`submitted_operation_count`、
+  `accepted_operation_count`、`by_operation`、受影响的业务键清单
+  （`affected_business_keys` 与计数）；
+- `tables`：各交付表 `before/after` 行数、`added_distinct_row_count`、
+  `removed_distinct_row_count`、`unchanged_row_count`；
+- `postcheck`：新包按同一验收协议复核的精确计数；
+- `outputs`：本周交付/事实内容哈希、逐表行数；
+- `warnings`：结构性无损失败等提示。
+
+相同输入重复运行得到相同的集合结果与**逐字节一致**的报告（报告不含时间戳或
+绝对路径）。整批失败时以 `status=REJECTED`、`stage`、`reasons` 说明原因，
+不写任何输出。
+
+## 5. 测试
 
 ```bash
 python3 -I run_tests.py        # 验收：38 项端到端断言（13 个场景 + 证据篡改驳回）
 python3 -I random_diff_test.py # 验收：120 个随机实例对朴素全枚举的差分测试 + 亿级隐式连接压力
 python3 -I ledger_tests.py     # 台账：44 项端到端断言（手算分摊/待分摊/非法拒收/压力）
 python3 -I ledger_diff_test.py # 台账：150 个随机实例对朴素全枚举的差分测试 + 3.4 亿隐式组合压力
+python3 -I rollforward_tests.py    # 滚动发布：83 项端到端断言（预检/变更/投影/原子/幂等/压力）
+python3 -I rollforward_diff_test.py # 滚动发布：150 个随机实例对朴素基准的差分测试
 ```
 
 台账压力场景：单据仅 1 张、4 张窄表共约 2100 行输入，三个无共享列分支各 700 行，
 朴素完整拼接含 `700³ = 343,000,000` 个组合，工具在约 0.06 秒内出具台账，
 且不产生任何拼接落地文件。
+
+滚动发布压力场景：三张无共享列分支各 400 行的隐式连接（`400³ = 64,000,000`
+组合），工具在约 0.06 秒内完成精确预检，不枚举、不落地连接结果。

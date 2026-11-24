@@ -1,0 +1,96 @@
+{
+  "report_version": "1.0",
+  "status": "OK",
+  "tool": "delivery_rollforward",
+  "inputs": {
+    "fact": {
+      "file_sha256": "c5d7a6056ba22ce3f02c5e97884a00de725c3fcdc43aa25e094665443ee3bc60",
+      "fact_row_count": 1
+    },
+    "delivery": {
+      "file_sha256": "d3426930ef2e75bf7e54c16fa98b173ccf1fc3edd9878eb383a24b23f8fb0d87",
+      "delivery_content_sha256": "b054709238d96af6096ff993b14a3fa2256a5f6f4e430d830b025fc1b1ae76a2"
+    },
+    "changes": {
+      "file_sha256": "b86819d62a7624890f2eaacf59af1c7e676b049cdfec5112ac341ae67fc87d18",
+      "submitted_operation_count": 1
+    }
+  },
+  "key_columns": [
+    "c0"
+  ],
+  "precheck": {
+    "fact_row_count": 1,
+    "reconstructed_distinct_row_count": 1,
+    "intersection_row_count": 1,
+    "missing_row_count": 0,
+    "spurious_row_count": 0,
+    "sets_equal": true,
+    "tables": [
+      {
+        "name": "T0",
+        "delivered_row_count": 1,
+        "fact_projection_row_count": 1,
+        "delivered_rows_outside_projection": 0,
+        "projection_rows_not_delivered": 0
+      }
+    ]
+  },
+  "changes": {
+    "complete_applied": true,
+    "submitted_operation_count": 1,
+    "accepted_operation_count": 1,
+    "by_operation": {
+      "insert": 1,
+      "update": 0,
+      "delete": 0
+    },
+    "affected_business_key_count": 1,
+    "affected_business_keys": [
+      {
+        "key": {
+          "c0": 1
+        },
+        "operation": "insert",
+        "row_changed": true
+      }
+    ]
+  },
+  "tables": [
+    {
+      "name": "T0",
+      "columns": [
+        "c0",
+        "c1",
+        "c2"
+      ],
+      "before_row_count": 1,
+      "after_row_count": 2,
+      "added_distinct_row_count": 1,
+      "removed_distinct_row_count": 0,
+      "unchanged_row_count": 1
+    }
+  ],
+  "postcheck": {
+    "fact_row_count": 2,
+    "reconstructed_distinct_row_count": 2,
+    "intersection_row_count": 2,
+    "missing_row_count": 0,
+    "spurious_row_count": 0,
+    "sets_equal": true
+  },
+  "outputs": {
+    "delivery_content_sha256": "2eb0eac94a47b35da0404b9621c0e715c46ef4cbba0660dbccab99038ea96f4a",
+    "fact_content_sha256": "f2752ced350990286e5cb87b3027e3af9a4d9fc4c5153a3e621b54c6469e8586",
+    "delivery_row_count_by_table": [
+      {
+        "name": "T0",
+        "row_count": 2
+      }
+    ],
+    "fact_row_count": 2,
+    "delivery_file_sha256": "12a9522fe22b7ed83318142733699edba4bf9ce993e7acc04e5a42b1b99a7bfd",
+    "fact_file_sha256": "e704c86a81595f7dd9fbb8c3cae8c1d53e3391ea69d1c4694d437cf34887c11f"
+  },
+  "warnings": []
+}

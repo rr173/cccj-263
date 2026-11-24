@@ -1,0 +1,104 @@
+{
+  "report_version": "1.0",
+  "status": "OK",
+  "tool": "delivery_rollforward",
+  "inputs": {
+    "fact": {
+      "file_sha256": "69352a9178c25f97afb5ac27402689bd96b092aa728bf3441239fc5c344b7d7f",
+      "fact_row_count": 1
+    },
+    "delivery": {
+      "file_sha256": "c7dde098234cd29b37fe0d548b4e6e4502c5c86bb41163b1dbe7c98dd7fab1f7",
+      "delivery_content_sha256": "ec3d4d8d8e52b4620b5b556cb275d0d38fe030103e92601d7cd36c9ad189f697"
+    },
+    "changes": {
+      "file_sha256": "e29311200b4c88d99ccfb3f3784a8debabf65b81ed928f926229a2b5a27cc0a3",
+      "submitted_operation_count": 2
+    }
+  },
+  "key_columns": [
+    "c0"
+  ],
+  "precheck": {
+    "fact_row_count": 1,
+    "reconstructed_distinct_row_count": 1,
+    "intersection_row_count": 1,
+    "missing_row_count": 0,
+    "spurious_row_count": 0,
+    "sets_equal": true,
+    "tables": [
+      {
+        "name": "T0",
+        "delivered_row_count": 1,
+        "fact_projection_row_count": 1,
+        "delivered_rows_outside_projection": 0,
+        "projection_rows_not_delivered": 0
+      }
+    ]
+  },
+  "changes": {
+    "complete_applied": true,
+    "submitted_operation_count": 2,
+    "accepted_operation_count": 2,
+    "by_operation": {
+      "insert": 2,
+      "update": 0,
+      "delete": 0
+    },
+    "affected_business_key_count": 2,
+    "affected_business_keys": [
+      {
+        "key": {
+          "c0": 2
+        },
+        "operation": "insert",
+        "row_changed": true
+      },
+      {
+        "key": {
+          "c0": 3
+        },
+        "operation": "insert",
+        "row_changed": true
+      }
+    ]
+  },
+  "tables": [
+    {
+      "name": "T0",
+      "columns": [
+        "c0",
+        "c1",
+        "c2",
+        "c3"
+      ],
+      "before_row_count": 1,
+      "after_row_count": 3,
+      "added_distinct_row_count": 2,
+      "removed_distinct_row_count": 0,
+      "unchanged_row_count": 1
+    }
+  ],
+  "postcheck": {
+    "fact_row_count": 3,
+    "reconstructed_distinct_row_count": 3,
+    "intersection_row_count": 3,
+    "missing_row_count": 0,
+    "spurious_row_count": 0,
+    "sets_equal": true
+  },
+  "outputs": {
+    "delivery_content_sha256": "ad01a1ea883cf028db3660c96d75ca9b04d33591be11a4efd191749e33e0333e",
+    "fact_content_sha256": "938ab00b53353054999d2c5375f904e5a60e0b36e45029c05477a266717c039e",
+    "delivery_row_count_by_table": [
+      {
+        "name": "T0",
+        "row_count": 3
+      }
+    ],
+    "fact_row_count": 3,
+    "delivery_file_sha256": "2d1e2e814c85f9d7f2b50ece585724486fafabbc563e7e80a45aaaccd3376865",
+    "fact_file_sha256": "677fd06a42bab7ce10a2eb2bd7d2fd0609957b6c0ba295278946cff7a97be26d"
+  },
+  "warnings": []
+}

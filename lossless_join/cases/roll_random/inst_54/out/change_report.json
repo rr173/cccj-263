@@ -1,0 +1,117 @@
+{
+  "report_version": "1.0",
+  "status": "OK",
+  "tool": "delivery_rollforward",
+  "inputs": {
+    "fact": {
+      "file_sha256": "a6eec4aceb36ac2fd5fcfb9f34cfb0af9fa6affedb571e8463187a0f0b122acc",
+      "fact_row_count": 5
+    },
+    "delivery": {
+      "file_sha256": "8757fa5794d31507ac3634c693ea11fbf9bce5a8290e0de8aa24787d42277398",
+      "delivery_content_sha256": "10990a821677efbb7a7a4517f9dc08ff5f50690940f600eacb978edc42238c6a"
+    },
+    "changes": {
+      "file_sha256": "f6bbcdb27405ad32e91fca37bc8a62ba5be0d22e37f06d7c30c16ffe1879cbe5",
+      "submitted_operation_count": 4
+    }
+  },
+  "key_columns": [
+    "c0"
+  ],
+  "precheck": {
+    "fact_row_count": 5,
+    "reconstructed_distinct_row_count": 5,
+    "intersection_row_count": 5,
+    "missing_row_count": 0,
+    "spurious_row_count": 0,
+    "sets_equal": true,
+    "tables": [
+      {
+        "name": "ONLY",
+        "delivered_row_count": 5,
+        "fact_projection_row_count": 5,
+        "delivered_rows_outside_projection": 0,
+        "projection_rows_not_delivered": 0
+      }
+    ]
+  },
+  "changes": {
+    "complete_applied": true,
+    "submitted_operation_count": 4,
+    "accepted_operation_count": 4,
+    "by_operation": {
+      "insert": 1,
+      "update": 1,
+      "delete": 2
+    },
+    "affected_business_key_count": 4,
+    "affected_business_keys": [
+      {
+        "key": {
+          "c0": 2
+        },
+        "operation": "delete",
+        "row_changed": true
+      },
+      {
+        "key": {
+          "c0": 5
+        },
+        "operation": "delete",
+        "row_changed": true
+      },
+      {
+        "key": {
+          "c0": 14
+        },
+        "operation": "update",
+        "row_changed": true
+      },
+      {
+        "key": {
+          "c0": 15
+        },
+        "operation": "insert",
+        "row_changed": true
+      }
+    ]
+  },
+  "tables": [
+    {
+      "name": "ONLY",
+      "columns": [
+        "c0",
+        "c1",
+        "c2"
+      ],
+      "before_row_count": 5,
+      "after_row_count": 4,
+      "added_distinct_row_count": 2,
+      "removed_distinct_row_count": 3,
+      "unchanged_row_count": 2
+    }
+  ],
+  "postcheck": {
+    "fact_row_count": 4,
+    "reconstructed_distinct_row_count": 4,
+    "intersection_row_count": 4,
+    "missing_row_count": 0,
+    "spurious_row_count": 0,
+    "sets_equal": true
+  },
+  "outputs": {
+    "delivery_content_sha256": "e436eaa62437fc47b22e73f475f92166e20ff1dd6f7062fa309caea60e371f7c",
+    "fact_content_sha256": "f82ad1c0d06957053be29f0786f637775dd32652d52e9159ce4f14e7af23b7fc",
+    "delivery_row_count_by_table": [
+      {
+        "name": "ONLY",
+        "row_count": 4
+      }
+    ],
+    "fact_row_count": 4,
+    "delivery_file_sha256": "eb72665c1141b15c18a99371b6334f78217994be0e2a4cb59fab308018d0d3b2",
+    "fact_file_sha256": "671027e72dfa71e443eb4f0d676863921aaf78f730a74dddd65925d0e24fc535"
+  },
+  "warnings": []
+}

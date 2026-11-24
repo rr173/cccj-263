@@ -1,0 +1,177 @@
+{
+  "report_version": "1.0",
+  "status": "OK",
+  "tool": "delivery_rollforward",
+  "inputs": {
+    "fact": {
+      "file_sha256": "f4866c558ccfb8845f4ab3dba112dfbb023bb182b727692ccec8876d97a0793b",
+      "fact_row_count": 1
+    },
+    "delivery": {
+      "file_sha256": "f17670e2686a7fefcc394107b31efca648f865ad98f4edd6a5dd5269b29ce5a7",
+      "delivery_content_sha256": "d88961768198f5602e6e74784ac2b143d56fda1e0f5f0d316364af114cf52743"
+    },
+    "changes": {
+      "file_sha256": "4e519b7c205bb099516a6ddb4d7bdd98010be5d5eb4dccb1cc082ebed961301f",
+      "submitted_operation_count": 3
+    }
+  },
+  "key_columns": [
+    "c2"
+  ],
+  "precheck": {
+    "fact_row_count": 1,
+    "reconstructed_distinct_row_count": 1,
+    "intersection_row_count": 1,
+    "missing_row_count": 0,
+    "spurious_row_count": 0,
+    "sets_equal": true,
+    "tables": [
+      {
+        "name": "T0",
+        "delivered_row_count": 1,
+        "fact_projection_row_count": 1,
+        "delivered_rows_outside_projection": 0,
+        "projection_rows_not_delivered": 0
+      },
+      {
+        "name": "T1",
+        "delivered_row_count": 1,
+        "fact_projection_row_count": 1,
+        "delivered_rows_outside_projection": 0,
+        "projection_rows_not_delivered": 0
+      },
+      {
+        "name": "T2",
+        "delivered_row_count": 1,
+        "fact_projection_row_count": 1,
+        "delivered_rows_outside_projection": 0,
+        "projection_rows_not_delivered": 0
+      },
+      {
+        "name": "T3",
+        "delivered_row_count": 1,
+        "fact_projection_row_count": 1,
+        "delivered_rows_outside_projection": 0,
+        "projection_rows_not_delivered": 0
+      }
+    ]
+  },
+  "changes": {
+    "complete_applied": true,
+    "submitted_operation_count": 3,
+    "accepted_operation_count": 3,
+    "by_operation": {
+      "insert": 2,
+      "update": 0,
+      "delete": 1
+    },
+    "affected_business_key_count": 3,
+    "affected_business_keys": [
+      {
+        "key": {
+          "c2": 4
+        },
+        "operation": "delete",
+        "row_changed": true
+      },
+      {
+        "key": {
+          "c2": 5
+        },
+        "operation": "insert",
+        "row_changed": true
+      },
+      {
+        "key": {
+          "c2": 6
+        },
+        "operation": "insert",
+        "row_changed": true
+      }
+    ]
+  },
+  "tables": [
+    {
+      "name": "T0",
+      "columns": [
+        "c0",
+        "c1"
+      ],
+      "before_row_count": 1,
+      "after_row_count": 2,
+      "added_distinct_row_count": 2,
+      "removed_distinct_row_count": 1,
+      "unchanged_row_count": 0
+    },
+    {
+      "name": "T1",
+      "columns": [
+        "c0"
+      ],
+      "before_row_count": 1,
+      "after_row_count": 2,
+      "added_distinct_row_count": 2,
+      "removed_distinct_row_count": 1,
+      "unchanged_row_count": 0
+    },
+    {
+      "name": "T2",
+      "columns": [
+        "c0"
+      ],
+      "before_row_count": 1,
+      "after_row_count": 2,
+      "added_distinct_row_count": 2,
+      "removed_distinct_row_count": 1,
+      "unchanged_row_count": 0
+    },
+    {
+      "name": "T3",
+      "columns": [
+        "c0",
+        "c1",
+        "c2"
+      ],
+      "before_row_count": 1,
+      "after_row_count": 2,
+      "added_distinct_row_count": 2,
+      "removed_distinct_row_count": 1,
+      "unchanged_row_count": 0
+    }
+  ],
+  "postcheck": {
+    "fact_row_count": 2,
+    "reconstructed_distinct_row_count": 2,
+    "intersection_row_count": 2,
+    "missing_row_count": 0,
+    "spurious_row_count": 0,
+    "sets_equal": true
+  },
+  "outputs": {
+    "delivery_content_sha256": "fa118f71aec99434e481d4e458803793163b5df5515bac5cf15b177fbfef1a9f",
+    "fact_content_sha256": "13e6f471918e66e4c96b0402c65dd075ff193a8de7c7f8c8d22edb6bc7a1a9f5",
+    "delivery_row_count_by_table": [
+      {
+        "name": "T0",
+        "row_count": 2
+      },
+      {
+        "name": "T1",
+        "row_count": 2
+      },
+      {
+        "name": "T2",
+        "row_count": 2
+      },
+      {
+        "name": "T3",
+        "row_count": 2
+      }
+    ],
+    "fact_row_count": 2,
+    "delivery_file_sha256": "e1a374d259fbbd7d8c0eef698f7bb9ad58c5fb22716e0478af3f6a1e9b496ab7",
+    "fact_file_sha256": "b4390af3bb756c5aed7bb0d2e5720a2d182d63b068ba9f9409579445327074bc"
+  },
+  "warnings": []
+}

@@ -13,8 +13,8 @@
   "missing_evidence": {
     "fact_row": [
       "s",
-      2,
-      0
+      0,
+      null
     ],
     "fact_columns": [
       "c0",
@@ -30,7 +30,7 @@
       ],
       "expected_row": [
         "s",
-        0
+        null
       ]
     }
   },

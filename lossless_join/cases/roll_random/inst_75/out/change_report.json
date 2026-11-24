@@ -1,0 +1,162 @@
+{
+  "report_version": "1.0",
+  "status": "OK",
+  "tool": "delivery_rollforward",
+  "inputs": {
+    "fact": {
+      "file_sha256": "032eeeeae74ee097aa467dabb6bba7af12804bac763d55bb0af9f8c5f999c4ac",
+      "fact_row_count": 2
+    },
+    "delivery": {
+      "file_sha256": "694532d93ca08e34eaa96346b94620c96380480b6e4271a75bbbbc61107aca62",
+      "delivery_content_sha256": "29bb71e0c67877b6e201d4cbc780b0c8fabf6998aacc2dd55089fc5af60cd86f"
+    },
+    "changes": {
+      "file_sha256": "74964ce597f734e27d2daffba62eaf80a8ba7177ac67af9ab956bfda52304293",
+      "submitted_operation_count": 1
+    }
+  },
+  "key_columns": [
+    "c1"
+  ],
+  "precheck": {
+    "fact_row_count": 2,
+    "reconstructed_distinct_row_count": 2,
+    "intersection_row_count": 2,
+    "missing_row_count": 0,
+    "spurious_row_count": 0,
+    "sets_equal": true,
+    "tables": [
+      {
+        "name": "T0",
+        "delivered_row_count": 2,
+        "fact_projection_row_count": 2,
+        "delivered_rows_outside_projection": 0,
+        "projection_rows_not_delivered": 0
+      },
+      {
+        "name": "T1",
+        "delivered_row_count": 2,
+        "fact_projection_row_count": 2,
+        "delivered_rows_outside_projection": 0,
+        "projection_rows_not_delivered": 0
+      },
+      {
+        "name": "T2",
+        "delivered_row_count": 2,
+        "fact_projection_row_count": 2,
+        "delivered_rows_outside_projection": 0,
+        "projection_rows_not_delivered": 0
+      },
+      {
+        "name": "T3",
+        "delivered_row_count": 2,
+        "fact_projection_row_count": 2,
+        "delivered_rows_outside_projection": 0,
+        "projection_rows_not_delivered": 0
+      }
+    ]
+  },
+  "changes": {
+    "complete_applied": true,
+    "submitted_operation_count": 1,
+    "accepted_operation_count": 1,
+    "by_operation": {
+      "insert": 1,
+      "update": 0,
+      "delete": 0
+    },
+    "affected_business_key_count": 1,
+    "affected_business_keys": [
+      {
+        "key": {
+          "c1": 15
+        },
+        "operation": "insert",
+        "row_changed": true
+      }
+    ]
+  },
+  "tables": [
+    {
+      "name": "T0",
+      "columns": [
+        "c0",
+        "c1"
+      ],
+      "before_row_count": 2,
+      "after_row_count": 3,
+      "added_distinct_row_count": 1,
+      "removed_distinct_row_count": 0,
+      "unchanged_row_count": 2
+    },
+    {
+      "name": "T1",
+      "columns": [
+        "c0",
+        "c1"
+      ],
+      "before_row_count": 2,
+      "after_row_count": 3,
+      "added_distinct_row_count": 1,
+      "removed_distinct_row_count": 0,
+      "unchanged_row_count": 2
+    },
+    {
+      "name": "T2",
+      "columns": [
+        "c1"
+      ],
+      "before_row_count": 2,
+      "after_row_count": 3,
+      "added_distinct_row_count": 1,
+      "removed_distinct_row_count": 0,
+      "unchanged_row_count": 2
+    },
+    {
+      "name": "T3",
+      "columns": [
+        "c0"
+      ],
+      "before_row_count": 2,
+      "after_row_count": 2,
+      "added_distinct_row_count": 0,
+      "removed_distinct_row_count": 0,
+      "unchanged_row_count": 2
+    }
+  ],
+  "postcheck": {
+    "fact_row_count": 3,
+    "reconstructed_distinct_row_count": 3,
+    "intersection_row_count": 3,
+    "missing_row_count": 0,
+    "spurious_row_count": 0,
+    "sets_equal": true
+  },
+  "outputs": {
+    "delivery_content_sha256": "b7d9e8dc6846f114226984fca65022c40db780a371a534f666dae26e1a4209e6",
+    "fact_content_sha256": "2234806176220bd6251ea2838923d8f6d23956c449a0e3acdec532746e36084f",
+    "delivery_row_count_by_table": [
+      {
+        "name": "T0",
+        "row_count": 3
+      },
+      {
+        "name": "T1",
+        "row_count": 3
+      },
+      {
+        "name": "T2",
+        "row_count": 3
+      },
+      {
+        "name": "T3",
+        "row_count": 2
+      }
+    ],
+    "fact_row_count": 3,
+    "delivery_file_sha256": "6666bfb0deeb3af8e6aded5d09c4890c9bfe576875cc62585bf720844d56d9c9",
+    "fact_file_sha256": "c5e41308fe596c4027a1bdacf047e357baae73309dd1b9ee7b388c1c5a556dee"
+  },
+  "warnings": []
+}

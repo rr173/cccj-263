@@ -1,0 +1,174 @@
+{
+  "report_version": "1.0",
+  "status": "OK",
+  "tool": "delivery_rollforward",
+  "inputs": {
+    "fact": {
+      "file_sha256": "005b585fe642880b3a23ac173324abf5d22fde4cd1c5450a2bf6b726b398a2ee",
+      "fact_row_count": 8
+    },
+    "delivery": {
+      "file_sha256": "24ef6710a798034ce4c260b606aa5f139c3126ae19902b7303803af85dffcaf7",
+      "delivery_content_sha256": "efef8e40cedbfcf31c24ceefcc215df4701fb14b0ba215c1aa015b0645be3b22"
+    },
+    "changes": {
+      "file_sha256": "e393f1588bc0b7e231ebe38249d2cccfd6fa631257acf4b7a10b139e9723852e",
+      "submitted_operation_count": 9
+    }
+  },
+  "key_columns": [
+    "c0"
+  ],
+  "precheck": {
+    "fact_row_count": 8,
+    "reconstructed_distinct_row_count": 8,
+    "intersection_row_count": 8,
+    "missing_row_count": 0,
+    "spurious_row_count": 0,
+    "sets_equal": true,
+    "tables": [
+      {
+        "name": "T0",
+        "delivered_row_count": 8,
+        "fact_projection_row_count": 8,
+        "delivered_rows_outside_projection": 0,
+        "projection_rows_not_delivered": 0
+      },
+      {
+        "name": "T1",
+        "delivered_row_count": 4,
+        "fact_projection_row_count": 4,
+        "delivered_rows_outside_projection": 0,
+        "projection_rows_not_delivered": 0
+      }
+    ]
+  },
+  "changes": {
+    "complete_applied": true,
+    "submitted_operation_count": 9,
+    "accepted_operation_count": 9,
+    "by_operation": {
+      "insert": 2,
+      "update": 3,
+      "delete": 4
+    },
+    "affected_business_key_count": 9,
+    "affected_business_keys": [
+      {
+        "key": {
+          "c0": 1
+        },
+        "operation": "delete",
+        "row_changed": true
+      },
+      {
+        "key": {
+          "c0": 6
+        },
+        "operation": "update",
+        "row_changed": true
+      },
+      {
+        "key": {
+          "c0": 8
+        },
+        "operation": "delete",
+        "row_changed": true
+      },
+      {
+        "key": {
+          "c0": 11
+        },
+        "operation": "delete",
+        "row_changed": true
+      },
+      {
+        "key": {
+          "c0": 14
+        },
+        "operation": "delete",
+        "row_changed": true
+      },
+      {
+        "key": {
+          "c0": 17
+        },
+        "operation": "update",
+        "row_changed": true
+      },
+      {
+        "key": {
+          "c0": 19
+        },
+        "operation": "update",
+        "row_changed": true
+      },
+      {
+        "key": {
+          "c0": 20
+        },
+        "operation": "insert",
+        "row_changed": true
+      },
+      {
+        "key": {
+          "c0": 21
+        },
+        "operation": "insert",
+        "row_changed": true
+      }
+    ]
+  },
+  "tables": [
+    {
+      "name": "T0",
+      "columns": [
+        "c0",
+        "c1",
+        "c2"
+      ],
+      "before_row_count": 8,
+      "after_row_count": 6,
+      "added_distinct_row_count": 5,
+      "removed_distinct_row_count": 7,
+      "unchanged_row_count": 1
+    },
+    {
+      "name": "T1",
+      "columns": [
+        "c2"
+      ],
+      "before_row_count": 4,
+      "after_row_count": 4,
+      "added_distinct_row_count": 0,
+      "removed_distinct_row_count": 0,
+      "unchanged_row_count": 4
+    }
+  ],
+  "postcheck": {
+    "fact_row_count": 6,
+    "reconstructed_distinct_row_count": 6,
+    "intersection_row_count": 6,
+    "missing_row_count": 0,
+    "spurious_row_count": 0,
+    "sets_equal": true
+  },
+  "outputs": {
+    "delivery_content_sha256": "89dddfa464abb61659be8f8354f167023241021861f1eab15f48a1420a6623e9",
+    "fact_content_sha256": "17059f472482d04800b698c2aac548226a8d13e407f826e1794b1afed02b0baf",
+    "delivery_row_count_by_table": [
+      {
+        "name": "T0",
+        "row_count": 6
+      },
+      {
+        "name": "T1",
+        "row_count": 4
+      }
+    ],
+    "fact_row_count": 6,
+    "delivery_file_sha256": "5e86ff4cc0d4ad74cd068fee970422c40fa15f01a353bb62f452e1a2aefd78ec",
+    "fact_file_sha256": "dc23581233b23877f10b6104546edd31dc9a4ac0202c9af8591cb3e1fb1f4295"
+  },
+  "warnings": []
+}

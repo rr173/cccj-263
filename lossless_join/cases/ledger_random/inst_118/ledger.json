@@ -21,26 +21,18 @@
     "x2"
   ],
   "doc_table_index": 0,
-  "group_totals": [
-    {
-      "group": [
-        null,
-        null
-      ],
-      "amount_cents": 0
-    }
-  ],
+  "group_totals": [],
   "pending": [
     {
-      "doc_id": "D1",
-      "amount_cents": 101
+      "doc_id": "D0",
+      "amount_cents": -500
     }
   ],
   "reconciliation": {
-    "doc_count": 2,
-    "distinct_doc_amount_total": 101,
+    "doc_count": 1,
+    "distinct_doc_amount_total": -500,
     "allocated_total": 0,
-    "pending_total": 101,
+    "pending_total": -500,
     "balanced": true
   },
   "warnings": []

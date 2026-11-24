@@ -3,18 +3,37 @@
   "status": "REJECTED",
   "verdict": {
     "fact_row_count": 2,
-    "reconstructed_distinct_row_count": 4,
-    "intersection_row_count": 2,
-    "missing_row_count": 0,
-    "spurious_row_count": 2,
+    "reconstructed_distinct_row_count": 2,
+    "intersection_row_count": 1,
+    "missing_row_count": 1,
+    "spurious_row_count": 1,
     "sets_equal": false
   },
   "warnings": [],
-  "missing_evidence": null,
+  "missing_evidence": {
+    "fact_row": [
+      null,
+      0
+    ],
+    "fact_columns": [
+      "c0",
+      "c1"
+    ],
+    "missing_fragment": {
+      "table": "T0",
+      "table_index": 0,
+      "expected_columns": [
+        "c0"
+      ],
+      "expected_row": [
+        null
+      ]
+    }
+  },
   "spurious_evidence": {
     "assembled_row": [
-      null,
-      2
+      "s",
+      0
     ],
     "fact_columns": [
       "c0",
@@ -29,7 +48,7 @@
           0
         ],
         "row": [
-          null
+          "s"
         ],
         "columns": [
           "c0"
@@ -38,12 +57,12 @@
       {
         "table": "T1",
         "table_index": 1,
-        "row_number": 1,
+        "row_number": 0,
         "row_indices_in_file": [
-          1
+          0
         ],
         "row": [
-          2
+          0
         ],
         "columns": [
           "c1"

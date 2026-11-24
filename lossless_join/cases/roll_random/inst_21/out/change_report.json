@@ -1,0 +1,146 @@
+{
+  "report_version": "1.0",
+  "status": "OK",
+  "tool": "delivery_rollforward",
+  "inputs": {
+    "fact": {
+      "file_sha256": "8e2bec4f1d040668e30ca460e4ff9ce950e5acbc0a5580854954db2e152c1488",
+      "fact_row_count": 8
+    },
+    "delivery": {
+      "file_sha256": "7477f43be00dbe0a293e89ec1375c241dd217ca26ebae2785ecb26ac65f6d7c2",
+      "delivery_content_sha256": "9523864fdf5fcdf4402e61bc7aca27d7a9aba1992d927e32d1801fb76199d4e7"
+    },
+    "changes": {
+      "file_sha256": "0f4572aaa3ffa07dcd29e02548188bde6fabd4c09d99437d92575a36f2500100",
+      "submitted_operation_count": 8
+    }
+  },
+  "key_columns": [
+    "c1"
+  ],
+  "precheck": {
+    "fact_row_count": 8,
+    "reconstructed_distinct_row_count": 8,
+    "intersection_row_count": 8,
+    "missing_row_count": 0,
+    "spurious_row_count": 0,
+    "sets_equal": true,
+    "tables": [
+      {
+        "name": "T0",
+        "delivered_row_count": 8,
+        "fact_projection_row_count": 8,
+        "delivered_rows_outside_projection": 0,
+        "projection_rows_not_delivered": 0
+      }
+    ]
+  },
+  "changes": {
+    "complete_applied": true,
+    "submitted_operation_count": 8,
+    "accepted_operation_count": 8,
+    "by_operation": {
+      "insert": 0,
+      "update": 2,
+      "delete": 6
+    },
+    "affected_business_key_count": 8,
+    "affected_business_keys": [
+      {
+        "key": {
+          "c1": 1
+        },
+        "operation": "update",
+        "row_changed": true
+      },
+      {
+        "key": {
+          "c1": 3
+        },
+        "operation": "delete",
+        "row_changed": true
+      },
+      {
+        "key": {
+          "c1": 6
+        },
+        "operation": "delete",
+        "row_changed": true
+      },
+      {
+        "key": {
+          "c1": 9
+        },
+        "operation": "delete",
+        "row_changed": true
+      },
+      {
+        "key": {
+          "c1": 10
+        },
+        "operation": "update",
+        "row_changed": true
+      },
+      {
+        "key": {
+          "c1": 11
+        },
+        "operation": "delete",
+        "row_changed": true
+      },
+      {
+        "key": {
+          "c1": 15
+        },
+        "operation": "delete",
+        "row_changed": true
+      },
+      {
+        "key": {
+          "c1": 19
+        },
+        "operation": "delete",
+        "row_changed": true
+      }
+    ]
+  },
+  "tables": [
+    {
+      "name": "T0",
+      "columns": [
+        "c0",
+        "c1",
+        "c2",
+        "c3"
+      ],
+      "before_row_count": 8,
+      "after_row_count": 2,
+      "added_distinct_row_count": 2,
+      "removed_distinct_row_count": 8,
+      "unchanged_row_count": 0
+    }
+  ],
+  "postcheck": {
+    "fact_row_count": 2,
+    "reconstructed_distinct_row_count": 2,
+    "intersection_row_count": 2,
+    "missing_row_count": 0,
+    "spurious_row_count": 0,
+    "sets_equal": true
+  },
+  "outputs": {
+    "delivery_content_sha256": "8fe191e1dd04dd346559c7a612e03c234b6a533e16bc25771f757b3e17e6b6f7",
+    "fact_content_sha256": "5f0d70134148efce17f2ff7bb50445418ffa7f3d51987b371d5a20b0596e2a79",
+    "delivery_row_count_by_table": [
+      {
+        "name": "T0",
+        "row_count": 2
+      }
+    ],
+    "fact_row_count": 2,
+    "delivery_file_sha256": "9e1dec872a11c037015c8956918be8af388d10df4c90231bce78fcedd3321438",
+    "fact_file_sha256": "ac910e4e70ee09d72a04a100b37a08291d46886ee3470f2780688323d2790170"
+  },
+  "warnings": []
+}

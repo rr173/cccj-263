@@ -1,0 +1,165 @@
+{
+  "report_version": "1.0",
+  "status": "OK",
+  "tool": "delivery_rollforward",
+  "inputs": {
+    "fact": {
+      "file_sha256": "f8f39e3e7ca517460d7d8606862b7749ac5b18b80685454b182ff08580a69900",
+      "fact_row_count": 3
+    },
+    "delivery": {
+      "file_sha256": "4bd875f39eb2e147f3f4cb3b5bb9fe1ca380fa4f689bfde38c4cdc81e5b0e31c",
+      "delivery_content_sha256": "d2e540f13b5f1756ba5dcebf2a3d92debef896a13d3ebb78f0f55d68a8097238"
+    },
+    "changes": {
+      "file_sha256": "6dcd6b4d1a5a63a5b393adddad113486fdf7429740690827c8d384a630020b5e",
+      "submitted_operation_count": 4
+    }
+  },
+  "key_columns": [
+    "c0"
+  ],
+  "precheck": {
+    "fact_row_count": 3,
+    "reconstructed_distinct_row_count": 3,
+    "intersection_row_count": 3,
+    "missing_row_count": 0,
+    "spurious_row_count": 0,
+    "sets_equal": true,
+    "tables": [
+      {
+        "name": "T0",
+        "delivered_row_count": 3,
+        "fact_projection_row_count": 3,
+        "delivered_rows_outside_projection": 0,
+        "projection_rows_not_delivered": 0
+      },
+      {
+        "name": "T1",
+        "delivered_row_count": 3,
+        "fact_projection_row_count": 3,
+        "delivered_rows_outside_projection": 0,
+        "projection_rows_not_delivered": 0
+      },
+      {
+        "name": "T2",
+        "delivered_row_count": 3,
+        "fact_projection_row_count": 3,
+        "delivered_rows_outside_projection": 0,
+        "projection_rows_not_delivered": 0
+      }
+    ]
+  },
+  "changes": {
+    "complete_applied": true,
+    "submitted_operation_count": 4,
+    "accepted_operation_count": 4,
+    "by_operation": {
+      "insert": 1,
+      "update": 0,
+      "delete": 3
+    },
+    "affected_business_key_count": 4,
+    "affected_business_keys": [
+      {
+        "key": {
+          "c0": 4
+        },
+        "operation": "delete",
+        "row_changed": true
+      },
+      {
+        "key": {
+          "c0": 12
+        },
+        "operation": "delete",
+        "row_changed": true
+      },
+      {
+        "key": {
+          "c0": 19
+        },
+        "operation": "delete",
+        "row_changed": true
+      },
+      {
+        "key": {
+          "c0": 20
+        },
+        "operation": "insert",
+        "row_changed": true
+      }
+    ]
+  },
+  "tables": [
+    {
+      "name": "T0",
+      "columns": [
+        "c0",
+        "c1",
+        "c3"
+      ],
+      "before_row_count": 3,
+      "after_row_count": 1,
+      "added_distinct_row_count": 1,
+      "removed_distinct_row_count": 3,
+      "unchanged_row_count": 0
+    },
+    {
+      "name": "T1",
+      "columns": [
+        "c0",
+        "c1",
+        "c3"
+      ],
+      "before_row_count": 3,
+      "after_row_count": 1,
+      "added_distinct_row_count": 1,
+      "removed_distinct_row_count": 3,
+      "unchanged_row_count": 0
+    },
+    {
+      "name": "T2",
+      "columns": [
+        "c1",
+        "c2",
+        "c3"
+      ],
+      "before_row_count": 3,
+      "after_row_count": 1,
+      "added_distinct_row_count": 1,
+      "removed_distinct_row_count": 3,
+      "unchanged_row_count": 0
+    }
+  ],
+  "postcheck": {
+    "fact_row_count": 1,
+    "reconstructed_distinct_row_count": 1,
+    "intersection_row_count": 1,
+    "missing_row_count": 0,
+    "spurious_row_count": 0,
+    "sets_equal": true
+  },
+  "outputs": {
+    "delivery_content_sha256": "01f1d34e9c3b1a671ac1074abd6915abe25cf7aa17093974c0ce28632100555d",
+    "fact_content_sha256": "3cf86894c9cba8839472ed442643072e4f130214051d2e62defb93c8a6d0fa89",
+    "delivery_row_count_by_table": [
+      {
+        "name": "T0",
+        "row_count": 1
+      },
+      {
+        "name": "T1",
+        "row_count": 1
+      },
+      {
+        "name": "T2",
+        "row_count": 1
+      }
+    ],
+    "fact_row_count": 1,
+    "delivery_file_sha256": "2e676ab8443d5cfdb59aa1be27dafab82d6fd935a5bd8bab1bd2eec34f325df3",
+    "fact_file_sha256": "c77eff89953ebe2377112a16cf5157a1b0d04ebfbc39885be3f118c68146d2c6"
+  },
+  "warnings": []
+}

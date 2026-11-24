@@ -1,0 +1,1 @@
+{"changes": [{"op": "insert", "row": [14, 0, null, "s"]}, {"op": "insert", "row": [15, 2, "s", null]}, {"op": "update", "key": {"c0": 6}, "row": [6, 2, null, "b"]}]}

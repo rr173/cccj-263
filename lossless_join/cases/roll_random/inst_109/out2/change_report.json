@@ -1,0 +1,129 @@
+{
+  "report_version": "1.0",
+  "status": "OK",
+  "tool": "delivery_rollforward",
+  "inputs": {
+    "fact": {
+      "file_sha256": "744732bf8709c1cee36883f13c1fadcdd89c75987b6862f4502b4455318b475f",
+      "fact_row_count": 1
+    },
+    "delivery": {
+      "file_sha256": "941bc1739121665dc568e5beaf82eb3b57b2185890aeb4a5382aa29aa6fd58fa",
+      "delivery_content_sha256": "5816e36f9eadd209630e018d0fe950b53e1970cc2f9fbdeaea2ff6e52c89cf5d"
+    },
+    "changes": {
+      "file_sha256": "5b079ec40a508b9614fe9568c59794ddfff29a210382b452a01d4ee1cd5f718c",
+      "submitted_operation_count": 2
+    }
+  },
+  "key_columns": [
+    "c0"
+  ],
+  "precheck": {
+    "fact_row_count": 1,
+    "reconstructed_distinct_row_count": 1,
+    "intersection_row_count": 1,
+    "missing_row_count": 0,
+    "spurious_row_count": 0,
+    "sets_equal": true,
+    "tables": [
+      {
+        "name": "T0",
+        "delivered_row_count": 1,
+        "fact_projection_row_count": 1,
+        "delivered_rows_outside_projection": 0,
+        "projection_rows_not_delivered": 0
+      },
+      {
+        "name": "T1",
+        "delivered_row_count": 1,
+        "fact_projection_row_count": 1,
+        "delivered_rows_outside_projection": 0,
+        "projection_rows_not_delivered": 0
+      }
+    ]
+  },
+  "changes": {
+    "complete_applied": true,
+    "submitted_operation_count": 2,
+    "accepted_operation_count": 2,
+    "by_operation": {
+      "insert": 2,
+      "update": 0,
+      "delete": 0
+    },
+    "affected_business_key_count": 2,
+    "affected_business_keys": [
+      {
+        "key": {
+          "c0": 7
+        },
+        "operation": "insert",
+        "row_changed": true
+      },
+      {
+        "key": {
+          "c0": 8
+        },
+        "operation": "insert",
+        "row_changed": true
+      }
+    ]
+  },
+  "tables": [
+    {
+      "name": "T0",
+      "columns": [
+        "c0",
+        "c2",
+        "c3"
+      ],
+      "before_row_count": 1,
+      "after_row_count": 3,
+      "added_distinct_row_count": 2,
+      "removed_distinct_row_count": 0,
+      "unchanged_row_count": 1
+    },
+    {
+      "name": "T1",
+      "columns": [
+        "c1",
+        "c2",
+        "c3"
+      ],
+      "before_row_count": 1,
+      "after_row_count": 3,
+      "added_distinct_row_count": 2,
+      "removed_distinct_row_count": 0,
+      "unchanged_row_count": 1
+    }
+  ],
+  "postcheck": {
+    "fact_row_count": 3,
+    "reconstructed_distinct_row_count": 5,
+    "intersection_row_count": 3,
+    "missing_row_count": 0,
+    "spurious_row_count": 2,
+    "sets_equal": false
+  },
+  "outputs": {
+    "delivery_content_sha256": "f65e114338113806f867be9e7ce71d095f92d8252eded43f47a3680991f039d1",
+    "fact_content_sha256": "beadfeca7e4c8d9d05ee3272ee20e4745f4b1395fd767e835849568f3868a753",
+    "delivery_row_count_by_table": [
+      {
+        "name": "T0",
+        "row_count": 3
+      },
+      {
+        "name": "T1",
+        "row_count": 3
+      }
+    ],
+    "fact_row_count": 3,
+    "delivery_file_sha256": "9968f7580a74d3dbb0807ce9ca9fdea3fb40b5ffdef151cd0955fceb70d8a192",
+    "fact_file_sha256": "bf3948a198afa4c1cd62fd9e9a33e18d8e1b639a5d6c0e04064049d4313dfbf5"
+  },
+  "warnings": [
+    "WARNING:本周投影包按上周表列与连接树无法无损回拼本周事实集合（缺行 0、造行 2）；请下游据此复核"
+  ]
+}

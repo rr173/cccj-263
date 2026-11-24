@@ -1,0 +1,157 @@
+{
+  "report_version": "1.0",
+  "status": "OK",
+  "tool": "delivery_rollforward",
+  "inputs": {
+    "fact": {
+      "file_sha256": "abc254706b5892933e5acc6741eea06ea17c8ed0eb1d78726bc2dddf0c92dc37",
+      "fact_row_count": 3
+    },
+    "delivery": {
+      "file_sha256": "db474eb57cbc4b66b10e57805410893e1a5d6bdb25f8cd13b4a7726cbe90a15f",
+      "delivery_content_sha256": "8de5973006debe12eb46bd8adf3bb1b5fdece45d2b257bcc0c617255c3e5c3d0"
+    },
+    "changes": {
+      "file_sha256": "d31d7bc744174a98ee257642e3d1c4d0aff325947705e9712cabd9d4de687408",
+      "submitted_operation_count": 3
+    }
+  },
+  "key_columns": [
+    "a"
+  ],
+  "precheck": {
+    "fact_row_count": 3,
+    "reconstructed_distinct_row_count": 3,
+    "intersection_row_count": 3,
+    "missing_row_count": 0,
+    "spurious_row_count": 0,
+    "sets_equal": true,
+    "tables": [
+      {
+        "name": "T1",
+        "delivered_row_count": 3,
+        "fact_projection_row_count": 3,
+        "delivered_rows_outside_projection": 0,
+        "projection_rows_not_delivered": 0
+      },
+      {
+        "name": "T2",
+        "delivered_row_count": 3,
+        "fact_projection_row_count": 3,
+        "delivered_rows_outside_projection": 0,
+        "projection_rows_not_delivered": 0
+      },
+      {
+        "name": "T3",
+        "delivered_row_count": 3,
+        "fact_projection_row_count": 3,
+        "delivered_rows_outside_projection": 0,
+        "projection_rows_not_delivered": 0
+      }
+    ]
+  },
+  "changes": {
+    "complete_applied": true,
+    "submitted_operation_count": 3,
+    "accepted_operation_count": 3,
+    "by_operation": {
+      "insert": 1,
+      "update": 1,
+      "delete": 1
+    },
+    "affected_business_key_count": 3,
+    "affected_business_keys": [
+      {
+        "key": {
+          "a": 2
+        },
+        "operation": "update",
+        "row_changed": true
+      },
+      {
+        "key": {
+          "a": 3
+        },
+        "operation": "delete",
+        "row_changed": true
+      },
+      {
+        "key": {
+          "a": 4
+        },
+        "operation": "insert",
+        "row_changed": true
+      }
+    ]
+  },
+  "tables": [
+    {
+      "name": "T1",
+      "columns": [
+        "a",
+        "b"
+      ],
+      "before_row_count": 3,
+      "after_row_count": 3,
+      "added_distinct_row_count": 2,
+      "removed_distinct_row_count": 2,
+      "unchanged_row_count": 1
+    },
+    {
+      "name": "T2",
+      "columns": [
+        "b",
+        "c"
+      ],
+      "before_row_count": 3,
+      "after_row_count": 3,
+      "added_distinct_row_count": 2,
+      "removed_distinct_row_count": 2,
+      "unchanged_row_count": 1
+    },
+    {
+      "name": "T3",
+      "columns": [
+        "c",
+        "d"
+      ],
+      "before_row_count": 3,
+      "after_row_count": 3,
+      "added_distinct_row_count": 1,
+      "removed_distinct_row_count": 1,
+      "unchanged_row_count": 2
+    }
+  ],
+  "postcheck": {
+    "fact_row_count": 3,
+    "reconstructed_distinct_row_count": 5,
+    "intersection_row_count": 3,
+    "missing_row_count": 0,
+    "spurious_row_count": 2,
+    "sets_equal": false
+  },
+  "outputs": {
+    "delivery_content_sha256": "a6f1d73ded75f91a00e591eca4e9bd23d7c937a72b6dd39901e53caed0c7d9af",
+    "fact_content_sha256": "4b71d9002288fd4b2c96da59a3b4ca333f0168aabb038d2656fdf6044f03a8a2",
+    "delivery_row_count_by_table": [
+      {
+        "name": "T1",
+        "row_count": 3
+      },
+      {
+        "name": "T2",
+        "row_count": 3
+      },
+      {
+        "name": "T3",
+        "row_count": 3
+      }
+    ],
+    "fact_row_count": 3,
+    "delivery_file_sha256": "9f092ff9d0defaa4638cb8c65a17b1c16753f28d23137c8eaffbada4e6c73568",
+    "fact_file_sha256": "d30f666bd06801ca040150f515a921c40b5397d96e321800ee72cb0399f2f577"
+  },
+  "warnings": [
+    "WARNING:本周投影包按上周表列与连接树无法无损回拼本周事实集合（缺行 0、造行 2）；请下游据此复核"
+  ]
+}

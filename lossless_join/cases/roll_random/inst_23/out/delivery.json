@@ -1,0 +1,65 @@
+{
+  "delivery_version": "1.0",
+  "tables": [
+    {
+      "name": "T0",
+      "columns": [
+        "c0"
+      ],
+      "rows": [
+        [
+          null
+        ]
+      ]
+    },
+    {
+      "name": "T1",
+      "columns": [
+        "c1",
+        "c2"
+      ],
+      "rows": [
+        [
+          null,
+          0
+        ]
+      ]
+    },
+    {
+      "name": "T2",
+      "columns": [
+        "c2"
+      ],
+      "rows": [
+        [
+          0
+        ]
+      ]
+    },
+    {
+      "name": "T3",
+      "columns": [
+        "c1"
+      ],
+      "rows": [
+        [
+          null
+        ]
+      ]
+    }
+  ],
+  "tree": [
+    [
+      "T0",
+      "T1"
+    ],
+    [
+      "T1",
+      "T2"
+    ],
+    [
+      "T1",
+      "T3"
+    ]
+  ]
+}

@@ -25,7 +25,7 @@
   "pending": [
     {
       "doc_id": "D0",
-      "amount_cents": 0
+      "amount_cents": 333
     },
     {
       "doc_id": "D1",
@@ -33,18 +33,18 @@
     },
     {
       "doc_id": "D2",
-      "amount_cents": 101
+      "amount_cents": 1000
     },
     {
       "doc_id": "D3",
-      "amount_cents": 1000
+      "amount_cents": 333
     }
   ],
   "reconciliation": {
     "doc_count": 4,
-    "distinct_doc_amount_total": 601,
+    "distinct_doc_amount_total": 1166,
     "allocated_total": 0,
-    "pending_total": 601,
+    "pending_total": 1166,
     "balanced": true
   },
   "warnings": []

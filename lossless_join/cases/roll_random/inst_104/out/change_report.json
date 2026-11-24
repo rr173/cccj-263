@@ -1,0 +1,153 @@
+{
+  "report_version": "1.0",
+  "status": "OK",
+  "tool": "delivery_rollforward",
+  "inputs": {
+    "fact": {
+      "file_sha256": "86e9d2fa54441affd4d29b1b16ee4011fa6ab1888bdaf1703d609a5c735ad9e5",
+      "fact_row_count": 7
+    },
+    "delivery": {
+      "file_sha256": "a7a0f749a3c32b951697d45e7506635b01e77d059f8b64835393f1aca2ab1a33",
+      "delivery_content_sha256": "2527a54e1144e900d8810b497c885a75cac8ed70a86b2d3a6eeca7e857f6a8f1"
+    },
+    "changes": {
+      "file_sha256": "36794c2935156a4f6348fbb6cb9bf903fc0e30c91b94f7f9d4c398694a281b3c",
+      "submitted_operation_count": 3
+    }
+  },
+  "key_columns": [
+    "c1"
+  ],
+  "precheck": {
+    "fact_row_count": 7,
+    "reconstructed_distinct_row_count": 7,
+    "intersection_row_count": 7,
+    "missing_row_count": 0,
+    "spurious_row_count": 0,
+    "sets_equal": true,
+    "tables": [
+      {
+        "name": "T0",
+        "delivered_row_count": 7,
+        "fact_projection_row_count": 7,
+        "delivered_rows_outside_projection": 0,
+        "projection_rows_not_delivered": 0
+      },
+      {
+        "name": "T1",
+        "delivered_row_count": 7,
+        "fact_projection_row_count": 7,
+        "delivered_rows_outside_projection": 0,
+        "projection_rows_not_delivered": 0
+      },
+      {
+        "name": "T2",
+        "delivered_row_count": 7,
+        "fact_projection_row_count": 7,
+        "delivered_rows_outside_projection": 0,
+        "projection_rows_not_delivered": 0
+      }
+    ]
+  },
+  "changes": {
+    "complete_applied": true,
+    "submitted_operation_count": 3,
+    "accepted_operation_count": 3,
+    "by_operation": {
+      "insert": 2,
+      "update": 0,
+      "delete": 1
+    },
+    "affected_business_key_count": 3,
+    "affected_business_keys": [
+      {
+        "key": {
+          "c1": 12
+        },
+        "operation": "delete",
+        "row_changed": true
+      },
+      {
+        "key": {
+          "c1": 19
+        },
+        "operation": "insert",
+        "row_changed": true
+      },
+      {
+        "key": {
+          "c1": 20
+        },
+        "operation": "insert",
+        "row_changed": true
+      }
+    ]
+  },
+  "tables": [
+    {
+      "name": "T0",
+      "columns": [
+        "c0",
+        "c1"
+      ],
+      "before_row_count": 7,
+      "after_row_count": 8,
+      "added_distinct_row_count": 2,
+      "removed_distinct_row_count": 1,
+      "unchanged_row_count": 6
+    },
+    {
+      "name": "T1",
+      "columns": [
+        "c1"
+      ],
+      "before_row_count": 7,
+      "after_row_count": 8,
+      "added_distinct_row_count": 2,
+      "removed_distinct_row_count": 1,
+      "unchanged_row_count": 6
+    },
+    {
+      "name": "T2",
+      "columns": [
+        "c1"
+      ],
+      "before_row_count": 7,
+      "after_row_count": 8,
+      "added_distinct_row_count": 2,
+      "removed_distinct_row_count": 1,
+      "unchanged_row_count": 6
+    }
+  ],
+  "postcheck": {
+    "fact_row_count": 8,
+    "reconstructed_distinct_row_count": 8,
+    "intersection_row_count": 8,
+    "missing_row_count": 0,
+    "spurious_row_count": 0,
+    "sets_equal": true
+  },
+  "outputs": {
+    "delivery_content_sha256": "717aed3167dc94dc13fd65e83d90518c08c9415f59cd35d6fc4762d8e1dcdaaf",
+    "fact_content_sha256": "a82f3e9d6498fea9762fa92149df3785bfb1af46b780a4477a7d8e43c8317771",
+    "delivery_row_count_by_table": [
+      {
+        "name": "T0",
+        "row_count": 8
+      },
+      {
+        "name": "T1",
+        "row_count": 8
+      },
+      {
+        "name": "T2",
+        "row_count": 8
+      }
+    ],
+    "fact_row_count": 8,
+    "delivery_file_sha256": "946ab3aaf70b2373da3f44b1875f9b11ea5563c1ec2a8a8167389ee23696dc97",
+    "fact_file_sha256": "6e13d298db9b26dfeccce456eb6da90d1ebf58357292018996c595e2a60a8978"
+  },
+  "warnings": []
+}
